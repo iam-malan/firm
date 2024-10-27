@@ -1,0 +1,248 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: $z-index-header;
+    background-color: transparent;
+    transition: $transition-base;
+    padding: 1.5rem 0;
+
+    .container {
+        position: relative;
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+
+        a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            
+            .firm-name {
+                color: $white;
+                font-family: $font-family-heading;
+                font-size: 1.75rem;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                transition: $transition-base;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .nav-menu {
+        margin-left: 3rem;
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 2.5rem;
+
+            li {
+                a {
+                    color: $white;
+                    font-family: $font-family-base;
+                    font-size: 1rem;
+                    font-weight: 500;
+                    text-decoration: none;
+                    position: relative;
+                    transition: $transition-base;
+                    padding: 0.5rem 0;
+
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 0;
+                        height: 2px;
+                        background: $secondary;
+                        transition: width 0.3s ease;
+                    }
+
+                    &:hover, &.active {
+                        color: $secondary;
+
+                        &:after {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .header-cta {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        .phone-number {
+            color: $white;
+            font-family: $font-family-base;
+            font-weight: 500;
+            font-size: 1rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            i {
+                color: $secondary;
+            }
+
+            &:hover {
+                color: $secondary;
+            }
+        }
+
+        .consultation-btn {
+            background: $secondary;
+            color: $white;
+            font-family: $font-family-base;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.75rem 1.75rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: $transition-base;
+
+            &:hover {
+                background: rgba($secondary, 0.85);
+                transform: translateY(-2px);
+            }
+        }
+    }
+
+    .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        z-index: $z-index-modal + 1;
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background: $white;
+            transition: $transition-base;
+        }
+
+        &.active {
+            .bar:nth-child(1) {
+                transform: rotate(45deg) translate(8px, 6px);
+            }
+            .bar:nth-child(2) {
+                opacity: 0;
+            }
+            .bar:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -5px);
+            }
+        }
+    }
+
+    &.scrolled {
+        background: rgba($white, 0.98);
+        box-shadow: 0 2px 10px rgba($black, 0.1);
+        padding: 1rem 0;
+
+        .logo a .firm-name {
+            color: $dark-gray;
+        }
+
+        .nav-menu .nav-list li a {
+            color: $dark-gray;
+
+            &:hover, &.active {
+                color: $secondary;
+            }
+        }
+
+        .header-cta {
+            .phone-number {
+                color: $dark-gray;
+            }
+        }
+
+        .mobile-menu-btn .bar {
+            background: $dark-gray;
+        }
+    }
+}
+
+@media (max-width: $breakpoint-lg) {
+    .header {
+        padding: 1rem 0;
+
+        .logo a .firm-name {
+            font-size: 1.5rem;
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 400px;
+            height: 100vh;
+            background: $white;
+            padding: 5rem 2rem;
+            transition: 0.5s;
+            box-shadow: -2px 0 10px rgba($black, 0.1);
+            z-index: $z-index-modal;
+            margin-left: 0;
+
+            &.active {
+                right: 0;
+            }
+
+            .nav-list {
+                flex-direction: column;
+                gap: 1.5rem;
+                
+                li {
+                    a {
+                        color: $dark-gray;
+                        font-size: 1.1rem;
+                        display: block;
+
+                        &:hover, &.active {
+                            color: $secondary;
+                        }
+                    }
+                }
+            }
+        }
+
+        .header-cta {
+            gap: 1rem;
+
+            .phone-number {
+                display: none;
+            }
+
+            .consultation-btn {
+                padding: 0.6rem 1.25rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        .mobile-menu-btn {
+            display: block;
+        }
+    }
+}

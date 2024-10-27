@@ -1,0 +1,30 @@
+{
+  "name": "law-firm-website",
+  "version": "1.0.0",
+  "description": "Law Firm Website",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build",
+    "dev": "gulp dev"
+  },
+  "dependencies": {
+    "aos": "^2.3.4",
+    "swiper": "^6.8.4",
+    "typed.js": "^2.0.16"
+  },
+  "devDependencies": {
+    "@types/aos": "^3.0.4",
+    "browser-sync": "^2.29.3",
+    "css-loader": "^6.8.1",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "sass": "^1.63.6",
+    "style-loader": "^3.3.3",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.1.6",
+    "webpack": "^5.88.1",
+    "webpack-stream": "^7.0.0"
+  }
+}

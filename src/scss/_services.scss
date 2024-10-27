@@ -1,0 +1,194 @@
+.services-section {
+    padding: $section-padding 0;
+    background-color: $white;
+
+    .services-image-banner {
+        width: 100%;
+        height: 400px;
+        margin-bottom: 60px;
+        position: relative;
+        overflow: hidden;
+        border-radius: $border-radius;
+        box-shadow: 0 5px 20px rgba($black, 0.1);
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba($primary, 0.2), rgba($primary, 0.4));
+        }
+
+        &:hover img {
+            transform: scale(1.05);
+        }
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 60px;
+
+        .section-title {
+            font-family: $font-family-heading;
+            font-size: 2.5rem;
+            color: $primary;
+            margin-bottom: 1rem;
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1.5rem 0;
+
+            .divider-line {
+                height: 2px;
+                width: 50px;
+                background-color: $secondary;
+                margin: 0 15px;
+            }
+
+            i {
+                color: $secondary;
+                font-size: 1.5rem;
+            }
+        }
+
+        .section-subtitle {
+            color: $dark-gray;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin: 0 auto;
+        max-width: 1200px;
+
+        .service-card {
+            background: $white;
+            padding: 40px 30px;
+            border-radius: $border-radius;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba($black, 0.05);
+            position: relative;
+            overflow: hidden;
+
+            &:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 10px 30px rgba($black, 0.1);
+
+                .service-icon {
+                    background: $secondary;
+                    color: $white;
+                    transform: scale(1.1);
+
+                    i {
+                        color: $white;
+                    }
+                }
+
+                .service-link {
+                    color: $secondary;
+
+                    i {
+                        transform: translateX(5px);
+                    }
+                }
+            }
+
+            .service-icon {
+                width: 80px;
+                height: 80px;
+                background: rgba($secondary, 0.1);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto 25px;
+                transition: all 0.3s ease;
+
+                i {
+                    font-size: 2rem;
+                    color: $secondary;
+                    transition: all 0.3s ease;
+                }
+            }
+
+            .service-title {
+                font-family: $font-family-heading;
+                font-size: 1.5rem;
+                color: $primary;
+                margin-bottom: 15px;
+            }
+
+            .service-description {
+                color: $dark-gray;
+                margin-bottom: 25px;
+                line-height: 1.6;
+            }
+
+            .service-link {
+                color: $primary;
+                text-decoration: none;
+                font-weight: 500;
+                display: inline-flex;
+                align-items: center;
+                transition: all 0.3s ease;
+
+                i {
+                    margin-left: 8px;
+                    transition: all 0.3s ease;
+                }
+
+                &:hover {
+                    color: $secondary;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $breakpoint-lg) {
+    .services-section {
+        .section-header {
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        .services-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@media (max-width: $breakpoint-md) {
+    .services-section {
+        padding: 60px 0;
+
+        .services-image-banner {
+            height: 300px;
+        }
+
+        .services-grid {
+            grid-template-columns: 1fr;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+    }
+}

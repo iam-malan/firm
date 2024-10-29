@@ -18,6 +18,7 @@ $card-padding: 30px;
 $border-radius: 10px;
 
 // Breakpoints
+$breakpoint-xs: 375px;  // Added for extra small devices
 $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
@@ -30,3 +31,9 @@ $z-index-modal: 1050;
 
 // Transitions
 $transition-base: all 0.3s ease;
+
+// Mobile-specific
+$mobile-header-height: 60px;
+$mobile-nav-width: 250px;
+$mobile-padding: 15px;
+$mobile-touch-target: 44px; // Minimum touch target size

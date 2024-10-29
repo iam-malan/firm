@@ -1,23 +1,83 @@
 .container {
     width: 100%;
-    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 $mobile-padding;
+    box-sizing: border-box;
 }
 
 .row {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 -15px;
+    margin: 0 -#{$mobile-padding};
 }
 
 .col {
-    flex: 1;
-    padding: 0 15px;
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 $mobile-padding;
+    box-sizing: border-box;
+    min-height: 1px;
+    margin-bottom: 1.5rem;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
 
-@media (max-width: $breakpoint-lg) {
+// Extra small devices
+@media (min-width: $breakpoint-xs) {
+    .container {
+        padding: 0 $mobile-padding;
+    }
+}
+
+// Small devices and up
+@media (min-width: $breakpoint-sm) {
+    .container {
+        padding: 0 20px;
+    }
+    
+    .row {
+        margin: 0 -15px;
+    }
+    
     .col {
-        flex: 0 0 100%;
+        padding: 0 15px;
+        margin-bottom: 2rem;
+    }
+}
+
+// Medium devices and up
+@media (min-width: $breakpoint-md) {
+    .container {
+        padding: 0 25px;
+    }
+
+    .col {
+        flex: 0 0 50%;
+        max-width: 50%;
+        margin-bottom: 2.5rem;
+    }
+
+    .row {
+        margin: 0 -20px;
+    }
+}
+
+// Large devices and up
+@media (min-width: $breakpoint-lg) {
+    .container {
+        max-width: 1200px;
+        padding: 0 30px;
+    }
+    
+    .col {
+        flex: 1;
+        max-width: none;
+        margin-bottom: 0;
+    }
+
+    .row {
+        margin: 0 -25px;
     }
 }

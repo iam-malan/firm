@@ -71,6 +71,9 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.initHeader = void 0;
 const initHeader = () => {
     const header = document.querySelector('.header');
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('.nav-menu');
+    // Scroll handler
     if (header) {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -79,6 +82,31 @@ const initHeader = () => {
             else {
                 header.classList.remove('scrolled');
             }
+        });
+    }
+    // Mobile menu toggle
+    if (mobileMenuBtn && navMenu) {
+        const toggleMenu = () => {
+            mobileMenuBtn.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+        };
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const target = e.target;
+            if (!mobileMenuBtn.contains(target) && !navMenu.contains(target) && navMenu.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
+        // Close menu when clicking on links
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
         });
     }
 };
@@ -175,48 +203,58 @@ document.addEventListener('DOMContentLoaded', () => {
 
 "use strict";
 
-document.addEventListener('DOMContentLoaded', function () {
-    // Initialize Swiper
-    const testimonialSwiper = new Swiper('.testimonials-carousel', {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        breakpoints: {
-            768: {
-                slidesPerView: 2,
+const initTestimonials = () => {
+    try {
+        const swiper = new Swiper('.testimonials-carousel', {
+            // Core settings
+            slidesPerView: 3,
+            spaceBetween: 30,
+            loop: true,
+            speed: 800,
+            grabCursor: true,
+            // Navigation
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
             },
-            1024: {
-                slidesPerView: 3,
-            }
-        }
-    });
-    // Add hover pause functionality
-    const swiperContainer = document.querySelector('.testimonials-carousel');
-    if (swiperContainer) {
-        swiperContainer.addEventListener('mouseenter', () => {
-            if (testimonialSwiper.autoplay) {
-                testimonialSwiper.autoplay.stop();
-            }
+            // Responsive breakpoints
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                }
+            },
+            // Ensure proper slide sizing
+            roundLengths: true,
+            watchOverflow: true,
+            normalizeSlideIndex: true,
+            centeredSlides: false
         });
-        swiperContainer.addEventListener('mouseleave', () => {
-            if (testimonialSwiper.autoplay) {
-                testimonialSwiper.autoplay.start();
-            }
+        // Add event listeners for debugging
+        swiper.on('slideChange', () => {
+            console.log('Slide changed');
         });
+        console.log('Testimonials carousel initialized');
     }
-});
+    catch (error) {
+        console.error('Error initializing testimonials carousel:', error);
+    }
+};
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTestimonials);
+}
+else {
+    initTestimonials();
+}
 
 
 /***/ }),

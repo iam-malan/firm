@@ -1,7 +1,28 @@
 .testimonials-section {
     padding: $section-padding 0;
-    background-color: $light-gray;
+    background: linear-gradient(135deg, $light-gray 0%, $white 100%);
+    position: relative;
     overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 50% 50%, $primary 1px, transparent 1px);
+        background-size: 50px 50px;
+        opacity: 0.03;
+        pointer-events: none;
+    }
+
+    .container {
+        position: relative;
+        padding: 0 60px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 
     .section-header {
         text-align: center;
@@ -12,6 +33,19 @@
             font-size: 2.5rem;
             color: $primary;
             margin-bottom: 1rem;
+            position: relative;
+            
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80px;
+                height: 3px;
+                background: linear-gradient(90deg, $primary, $secondary);
+                border-radius: 2px;
+            }
         }
 
         .section-divider {
@@ -22,8 +56,8 @@
 
             .divider-line {
                 height: 2px;
-                width: 50px;
-                background-color: $secondary;
+                width: 40px;
+                background: linear-gradient(90deg, $primary, $secondary);
                 margin: 0 15px;
             }
 
@@ -36,59 +70,192 @@
         .section-subtitle {
             color: $dark-gray;
             font-size: 1.1rem;
-            max-width: 600px;
             margin: 0 auto;
+            max-width: 600px;
+            line-height: 1.6;
         }
     }
 
     .testimonials-carousel {
-        padding: 20px;
-        margin: -20px;
+        position: relative;
+        width: 100%;
+        overflow: visible;
+        padding: 30px 0;
 
-        .testimonial-card {
-            padding: 40px;
-            background: $white;
-            border-radius: $border-radius;
-            box-shadow: 0 5px 20px rgba($black, 0.05);
-            transition: all 0.3s ease;
+        .swiper-wrapper {
+            display: flex;
+            align-items: stretch;
+            height: auto;
+            padding: 20px 0;
+        }
 
-            &:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 10px 30px rgba($black, 0.1);
-            }
+        .swiper-slide {
+            height: auto;
+            opacity: 1;
+            transition: transform 0.5s ease;
+            
+            .testimonial-card {
+                background: linear-gradient(135deg, $white 0%, rgba($light-gray, 0.5) 100%);
+                border-radius: $border-radius;
+                padding: 35px;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+                border: 1px solid rgba($primary, 0.1);
 
-            .testimonial-content {
-                text-align: center;
+                // Inner border
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    right: 10px;
+                    bottom: 10px;
+                    border: 1px solid rgba($secondary, 0.2);
+                    border-radius: calc(#{$border-radius} - 2px);
+                    pointer-events: none;
+                    transition: all 0.4s ease;
+                }
 
-                .quote-icon {
-                    color: $secondary;
-                    font-size: 2rem;
-                    margin-bottom: 20px;
+                // Corner decorations
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 30px;
+                    height: 30px;
+                    border-top: 2px solid $secondary;
+                    border-left: 2px solid $secondary;
+                    top: 20px;
+                    left: 20px;
+                    opacity: 0.5;
+                    transition: all 0.4s ease;
+                }
 
-                    i {
-                        opacity: 0.5;
+                .corner-tr, .corner-bl {
+                    position: absolute;
+                    width: 30px;
+                    height: 30px;
+                    opacity: 0.5;
+                    transition: all 0.4s ease;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
                     }
                 }
 
-                p {
-                    color: $dark-gray;
-                    font-size: 1.1rem;
-                    line-height: 1.8;
-                    margin-bottom: 25px;
-                    font-style: italic;
+                .corner-tr {
+                    top: 20px;
+                    right: 20px;
+                    
+                    &::before {
+                        border-top: 2px solid $secondary;
+                        border-right: 2px solid $secondary;
+                    }
                 }
 
-                .client-info {
-                    .client-name {
-                        font-family: $font-family-heading;
-                        color: $primary;
-                        font-size: 1.2rem;
-                        margin-bottom: 5px;
+                .corner-bl {
+                    bottom: 20px;
+                    left: 20px;
+                    
+                    &::before {
+                        border-bottom: 2px solid $secondary;
+                        border-left: 2px solid $secondary;
                     }
+                }
 
-                    .client-position {
+                .testimonial-content {
+                    text-align: center;
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    position: relative;
+                    z-index: 1;
+                    padding: 10px;
+
+                    .quote-icon {
                         color: $secondary;
-                        font-size: 0.9rem;
+                        font-size: 2rem;
+                        margin-bottom: 20px;
+                        position: relative;
+
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            width: 40px;
+                            height: 40px;
+                            background: rgba($secondary, 0.1);
+                            border-radius: 50%;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            z-index: -1;
+                        }
+
+                        i {
+                            opacity: 0.9;
+                        }
+                    }
+
+                    p {
+                        color: $dark-gray;
+                        font-size: 1.1rem;
+                        line-height: 1.8;
+                        margin-bottom: 25px;
+                        font-style: italic;
+                        flex: 1;
+                    }
+
+                    .client-info {
+                        margin-top: auto;
+                        padding-top: 20px;
+                        border-top: 1px solid rgba($primary, 0.1);
+                        
+                        .client-name {
+                            font-family: $font-family-heading;
+                            color: $primary;
+                            font-size: 1.2rem;
+                            margin-bottom: 5px;
+                            font-weight: 600;
+                        }
+
+                        .client-position {
+                            color: $secondary;
+                            font-size: 0.95rem;
+                            font-weight: 500;
+                        }
+                    }
+                }
+
+                &:hover {
+                    transform: translateY(-10px);
+                    box-shadow: 0 20px 40px rgba($primary, 0.15);
+                    border-color: rgba($secondary, 0.2);
+                    
+                    &::before {
+                        top: 15px;
+                        left: 15px;
+                        right: 15px;
+                        bottom: 15px;
+                        border-color: rgba($secondary, 0.4);
+                    }
+
+                    &::after,
+                    .corner-tr,
+                    .corner-bl {
+                        opacity: 1;
+                    }
+
+                    .corner-tr {
+                        transform: translate(-5px, 5px);
+                    }
+
+                    .corner-bl {
+                        transform: translate(5px, -5px);
                     }
                 }
             }
@@ -97,24 +264,48 @@
 
     .swiper-button-next,
     .swiper-button-prev {
-        color: $secondary;
+        width: 50px;
+        height: 50px;
+        margin-top: -25px;
+        background: linear-gradient(135deg, $white 0%, $gray 100%);
+        border-radius: 50%;
+        box-shadow: 0 4px 15px rgba($black, 0.1);
+        color: $primary;
+        transition: all 0.3s ease;
         
         &:after {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
+            font-weight: bold;
         }
 
         &:hover {
-            color: rgba($secondary, 0.8);
+            background: linear-gradient(135deg, $secondary 0%, darken($secondary, 10%) 100%);
+            color: $white;
+            transform: scale(1.1);
         }
     }
 
-    .swiper-pagination {
-        .swiper-pagination-bullet {
-            background: $secondary;
-            opacity: 0.5;
+    .swiper-button-prev {
+        left: 0;
+    }
 
-            &.swiper-pagination-bullet-active {
-                opacity: 1;
+    .swiper-button-next {
+        right: 0;
+    }
+
+    .swiper-pagination {
+        bottom: -30px;
+        
+        .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            background: rgba($primary, 0.2);
+            opacity: 1;
+            transition: all 0.3s ease;
+            
+            &-active {
+                background: $secondary;
+                transform: scale(1.3);
             }
         }
     }
@@ -122,6 +313,24 @@
 
 @media (max-width: $breakpoint-lg) {
     .testimonials-section {
+        .container {
+            padding: 0 50px;
+        }
+
+        .section-header {
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+    }
+}
+
+@media (max-width: $breakpoint-md) {
+    .testimonials-section {
+        .container {
+            padding: 0 40px;
+        }
+        
         .section-header {
             .section-title {
                 font-size: 2rem;
@@ -129,8 +338,6 @@
         }
 
         .testimonial-card {
-            padding: 30px;
-
             .testimonial-content {
                 p {
                     font-size: 1rem;
@@ -140,13 +347,25 @@
     }
 }
 
-@media (max-width: $breakpoint-md) {
+@media (max-width: $breakpoint-sm) {
     .testimonials-section {
-        padding: 60px 0;
+        .container {
+            padding: 0 30px;
+        }
+        
+        .section-header {
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
 
-        .testimonials-carousel {
-            padding: 10px;
-            margin: -10px;
+        .testimonial-card {
+            &::before,
+            &::after,
+            .corner-tr,
+            .corner-bl {
+                display: none;
+            }
         }
     }
 }

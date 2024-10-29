@@ -45,15 +45,11 @@
     </header>
 
     <section class="hero-section" id="home">
-        <div class="video-background">
-            <video autoplay muted loop playsinline>
-                <source src="src/videos/hero-video.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+        <div class="hero-image">
+            <img src="src/images/puffin.png" alt="Majestic Puffin">
         </div>
-        <div class="hero-overlay"></div>
-        <div class="container">
-            <div class="hero-content" data-aos="fade-up">
+        <div class="hero-content">
+            <div class="container">
                 <h1 class="hero-title">Expert Legal Solutions for Complex Challenges</h1>
                 <p class="hero-subtitle">Dedicated to protecting your rights and securing your future</p>
                 <div class="hero-cta">
@@ -61,12 +57,6 @@
                     <a href="#services" class="secondary-btn">Our Services</a>
                 </div>
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
-            <div class="arrow"></div>
         </div>
     </section>
 
@@ -258,41 +248,53 @@
 
             <div class="swiper testimonials-carousel" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide testimonial-card">
-                        <div class="testimonial-content">
-                            <div class="quote-icon">
-                                <i class="fas fa-quote-left"></i>
-                            </div>
-                            <p>"The legal team was incredibly supportive and knowledgeable. They helped me navigate through my case seamlessly!"</p>
-                            <div class="client-info">
-                                <h4 class="client-name">Jane Doe</h4>
-                                <span class="client-position">Business Owner</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide testimonial-card">
-                        <div class="testimonial-content">
-                            <div class="quote-icon">
-                                <i class="fas fa-quote-left"></i>
-                            </div>
-                            <p>"I couldn't have asked for a better representation during my divorce. They truly cared about my situation!"</p>
-                            <div class="client-info">
-                                <h4 class="client-name">John Smith</h4>
-                                <span class="client-position">Client</span>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <span class="corner-tr"></span>
+                            <span class="corner-bl"></span>
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <p>"The legal team was incredibly supportive and knowledgeable. They helped me navigate through my case seamlessly!"</p>
+                                <div class="client-info">
+                                    <h4 class="client-name">Jane Doe</h4>
+                                    <span class="client-position">Business Owner</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="swiper-slide testimonial-card">
-                        <div class="testimonial-content">
-                            <div class="quote-icon">
-                                <i class="fas fa-quote-left"></i>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <span class="corner-tr"></span>
+                            <span class="corner-bl"></span>
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <p>"I couldn't have asked for a better representation during my divorce. They truly cared about my situation!"</p>
+                                <div class="client-info">
+                                    <h4 class="client-name">John Smith</h4>
+                                    <span class="client-position">Client</span>
+                                </div>
                             </div>
-                            <p>"Professional and efficient. They made the whole process easy and were always available for questions."</p>
-                            <div class="client-info">
-                                <h4 class="client-name">Emily Johnson</h4>
-                                <span class="client-position">Entrepreneur</span>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <span class="corner-tr"></span>
+                            <span class="corner-bl"></span>
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <p>"Professional and efficient. They made the whole process easy and were always available for questions."</p>
+                                <div class="client-info">
+                                    <h4 class="client-name">Emily Johnson</h4>
+                                    <span class="client-position">Entrepreneur</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -301,6 +303,60 @@
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2 class="section-title">Contact Us</h2>
+                <div class="section-divider">
+                    <span class="divider-line"></span>
+                    <i class="fas fa-handshake"></i>
+                    <span class="divider-line"></span>
+                </div>
+                <p class="section-subtitle">Get in Touch with Our Legal Team</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Phone</h3>
+                    <p>Main Office: <a href="tel:+1234567890">(123) 456-7890</a></p>
+                    <p>Toll Free: <a href="tel:+18001234567">1-800-123-4567</a></p>
+                </div>
+
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:info@lawfirm.com">info@lawfirm.com</a></p>
+                    <p><a href="mailto:support@lawfirm.com">support@lawfirm.com</a></p>
+                </div>
+
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Office Location</h3>
+                    <p>123 Law Street</p>
+                    <p>Suite 500</p>
+                    <p>City, State 12345</p>
+                </div>
+
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Business Hours</h3>
+                    <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                    <p>Saturday: By Appointment</p>
+                    <p>Sunday: Closed</p>
+                </div>
             </div>
         </div>
     </section>
@@ -383,6 +439,52 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50
+        });
+        
+        window.addEventListener('load', function() {
+            if (typeof Swiper !== 'undefined') {
+                setTimeout(() => {
+                    const testimonialSwiper = new Swiper('.testimonials-carousel', {
+                        slidesPerView: 1,
+                        spaceBetween: 30,
+                        centeredSlides: false,
+                        loop: true,
+                        autoplay: {
+                            delay: 5000,
+                            disableOnInteraction: false,
+                        },
+                        pagination: {
+                            el: '.swiper-pagination',
+                            clickable: true,
+                        },
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        },
+                        breakpoints: {
+                            768: {
+                                slidesPerView: 2,
+                                spaceBetween: 30,
+                            },
+                            1024: {
+                                slidesPerView: 3,
+                                spaceBetween: 30,
+                            }
+                        },
+                        observer: true,
+                        observeParents: true,
+                        watchOverflow: true,
+                        roundLengths: true
+                    });
+                }, 100);
+            }
+        });
+    </script>
     <script src="dist/js/bundle.js"></script>
 </body>
 </html>

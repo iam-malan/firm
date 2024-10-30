@@ -113,8 +113,8 @@
 .header .nav-menu {
   position: fixed;
   top: 0;
-  right: -100%;
-  width: 100%;
+  right: -85%;
+  width: 85%;
   height: 100vh;
   background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(10px);
@@ -178,30 +178,20 @@
   gap: 15px;
 }
 .header .header-cta .phone-number {
-  display: none;
-}
-.header .header-cta .consultation-btn {
-  background: #ff4081;
-  color: #ffffff;
-  font-family: "Work Sans", sans-serif;
-  font-size: 0.7rem;
-  font-weight: 500;
-  padding: 0.25rem 0.6rem;
-  border-radius: 50px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  min-height: 28px;
   display: flex;
   align-items: center;
-  white-space: nowrap;
-  line-height: 1;
+  color: #ffffff;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: none;
+  gap: 0.5rem;
 }
-.header .header-cta .consultation-btn:hover {
-  background: rgba(255, 64, 129, 0.85);
-  transform: translateY(-2px);
+.header .header-cta .phone-number i {
+  color: #ff4081;
 }
-.header .header-cta .consultation-btn:active {
-  transform: translateY(0);
+.header .header-cta .phone-number:hover {
+  color: #ff4081;
 }
 .header .mobile-menu-btn {
   display: block;
@@ -251,6 +241,9 @@
 .header.scrolled .mobile-menu-btn .bar {
   background: #333333;
 }
+.header.scrolled .header-cta .phone-number {
+  color: #333333;
+}
 
 @media (min-width: 768px) {
   .header {
@@ -260,13 +253,8 @@
   .header .logo a .firm-name {
     font-size: 1.15rem;
   }
-  .header .header-cta {
-    gap: 1rem;
-  }
-  .header .header-cta .consultation-btn {
-    padding: 0.35rem 0.8rem;
-    font-size: 0.8rem;
-    min-height: 32px;
+  .header .header-cta .phone-number {
+    font-size: 1rem;
   }
 }
 @media (min-width: 992px) {
@@ -303,30 +291,6 @@
   .header .nav-menu .nav-list li a:hover {
     transform: none;
   }
-  .header .header-cta {
-    gap: 2rem;
-  }
-  .header .header-cta .phone-number {
-    display: flex;
-    align-items: center;
-    color: #ffffff;
-    font-family: "Work Sans", sans-serif;
-    font-weight: 500;
-    font-size: 1rem;
-    text-decoration: none;
-    gap: 0.5rem;
-  }
-  .header .header-cta .phone-number i {
-    color: #ff4081;
-  }
-  .header .header-cta .phone-number:hover {
-    color: #ff4081;
-  }
-  .header .header-cta .consultation-btn {
-    padding: 0.45rem 1rem;
-    font-size: 0.85rem;
-    min-height: 36px;
-  }
   .header .mobile-menu-btn {
     display: none;
   }
@@ -334,8 +298,7 @@
 .hero-section {
   position: relative;
   width: 100%;
-  height: calc(100vh - 60px);
-  margin-top: 60px;
+  height: 100vh;
   overflow: hidden;
   background-color: #1a237e;
 }
@@ -369,6 +332,7 @@
   color: #ffffff;
   max-width: 1200px;
   margin: 0 auto;
+  padding-top: 60px;
 }
 .hero-section .hero-content .hero-title {
   font-family: "Playfair Display", serif;
@@ -436,9 +400,8 @@
 }
 
 @media (min-width: 768px) {
-  .hero-section {
-    height: 100vh;
-    margin-top: 0;
+  .hero-section .hero-content .container {
+    padding-top: 0;
   }
   .hero-section .hero-content .hero-title {
     font-size: 3.5rem;

@@ -1,8 +1,7 @@
 .hero-section {
     position: relative;
     width: 100%;
-    height: calc(100vh - #{$mobile-header-height});
-    margin-top: $mobile-header-height;
+    height: 100vh; // Changed to full height
     overflow: hidden;
     background-color: $primary;
 
@@ -41,6 +40,7 @@
             color: $white;
             max-width: 1200px;
             margin: 0 auto;
+            padding-top: $mobile-header-height; // Added padding to prevent content overlap with header
         }
 
         .hero-title {
@@ -116,10 +116,11 @@
 
 @media (min-width: $breakpoint-md) {
     .hero-section {
-        height: 100vh;
-        margin-top: 0;
-
         .hero-content {
+            .container {
+                padding-top: 0; // Remove padding on desktop
+            }
+            
             .hero-title {
                 font-size: 3.5rem;
             }

@@ -49,8 +49,8 @@
     .nav-menu {
         position: fixed;
         top: 0;
-        right: -100%;
-        width: 100%;
+        right: -85%;
+        width: 85%;
         height: 100vh;
         background: rgba($white, 0.98);
         backdrop-filter: blur(10px);
@@ -123,32 +123,21 @@
         gap: $mobile-padding;
 
         .phone-number {
-            display: none;
-        }
-
-        .consultation-btn {
-            background: $secondary;
-            color: $white;
-            font-family: $font-family-base;
-            font-size: 0.7rem;
-            font-weight: 500;
-            padding: 0.25rem 0.6rem;
-            border-radius: 50px;
-            text-decoration: none;
-            transition: $transition-base;
-            min-height: 28px;
             display: flex;
             align-items: center;
-            white-space: nowrap;
-            line-height: 1;
+            color: $white;
+            font-family: $font-family-base;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-decoration: none;
+            gap: 0.5rem;
 
-            &:hover {
-                background: rgba($secondary, 0.85);
-                transform: translateY(-2px);
+            i {
+                color: $secondary;
             }
 
-            &:active {
-                transform: translateY(0);
+            &:hover {
+                color: $secondary;
             }
         }
     }
@@ -209,6 +198,10 @@
         .mobile-menu-btn .bar {
             background: $dark-gray;
         }
+
+        .header-cta .phone-number {
+            color: $dark-gray;
+        }
     }
 }
 
@@ -222,14 +215,8 @@
             font-size: 1.15rem;
         }
 
-        .header-cta {
-            gap: 1rem;
-
-            .consultation-btn {
-                padding: 0.35rem 0.8rem;
-                font-size: 0.8rem;
-                min-height: 32px;
-            }
+        .header-cta .phone-number {
+            font-size: 1rem;
         }
     }
 }
@@ -271,35 +258,6 @@
                         transform: none;
                     }
                 }
-            }
-        }
-
-        .header-cta {
-            gap: 2rem;
-
-            .phone-number {
-                display: flex;
-                align-items: center;
-                color: $white;
-                font-family: $font-family-base;
-                font-weight: 500;
-                font-size: 1rem;
-                text-decoration: none;
-                gap: 0.5rem;
-
-                i {
-                    color: $secondary;
-                }
-
-                &:hover {
-                    color: $secondary;
-                }
-            }
-
-            .consultation-btn {
-                padding: 0.45rem 1rem;
-                font-size: 0.85rem;
-                min-height: 36px;
             }
         }
 

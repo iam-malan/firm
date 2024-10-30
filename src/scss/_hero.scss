@@ -1,7 +1,7 @@
 .hero-section {
     position: relative;
     width: 100%;
-    height: 100vh; // Changed to full height
+    height: 100vh;
     overflow: hidden;
     background-color: $primary;
 
@@ -17,6 +17,7 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            will-change: transform; // Optimize performance
         }
     }
 
@@ -40,7 +41,8 @@
             color: $white;
             max-width: 1200px;
             margin: 0 auto;
-            padding-top: $mobile-header-height; // Added padding to prevent content overlap with header
+            padding-top: calc(#{$mobile-header-height} / 2); // Adjusted for better centering
+            transform: translateY(-2%); // Slight adjustment for visual centering
         }
 
         .hero-title {
@@ -118,7 +120,8 @@
     .hero-section {
         .hero-content {
             .container {
-                padding-top: 0; // Remove padding on desktop
+                padding-top: 0;
+                transform: translateY(0);
             }
             
             .hero-title {

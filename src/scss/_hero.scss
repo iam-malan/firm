@@ -38,14 +38,14 @@
             rgba($primary, 0.4),
             rgba($primary, 0.5)
         );
-        padding: 0 20px;
+        padding: 0 10px;
 
         .container {
             text-align: center;
             color: $white;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 10px;
         }
 
         .hero-title {
@@ -142,10 +142,10 @@
         min-height: 600px;
 
         .hero-content {
-            padding: 0 15px;
+            padding: 0 10px;
 
             .container {
-                padding: 0 15px;
+                padding: 0 10px;
             }
 
             .hero-title {

@@ -1,0 +1,46 @@
+// Media queries for responsive design
+
+@media (max-width: $breakpoint-xs) {
+  // Styles for extra small devices
+  body {
+    padding: 0;
+    margin: 0;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 10px;
+  }
+
+  .services {
+    padding: 10px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  // Styles for small devices
+  .hero {
+    padding: 20px;
+  }
+
+  .services {
+    padding: 15px;
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  // Styles for medium devices
+}
+
+@media (max-width: $breakpoint-lg) {
+  // Styles for large devices
+}
+
+@media (max-width: $breakpoint-xl) {
+  // Styles for extra large devices
+}
